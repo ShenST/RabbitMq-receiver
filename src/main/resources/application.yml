@@ -1,0 +1,32 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+  h2:
+    console:
+      enabled: true
+      path: "/h2-console"
+      settings:
+        web-allow-others: true
+  datasource:
+    initialization-mode: embedded
+    continue-on-error: false
+    sqlScriptEncoding: "UTF-8"
+    driverClassName: "org.h2.Driver"
+    url: "jdbc:h2:~/test"
+    username: "sa"
+    password: ""
+    separator: ;
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+    #确认消息已发送到交换机(Exchange)
+    publisher-confirm-type: correlated
+    #确认消息已发送到队列(Queue)
+    publisher-returns: true
+
+server:
+  port: 8081
